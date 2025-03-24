@@ -10,6 +10,7 @@ use Filament\Support\Concerns\Configurable;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 use Filament\Support\Concerns\HasExtraAttributes;
+use Filament\Widgets\Concerns\CanPoll;
 use Filament\Widgets\Widget;
 use Illuminate\Contracts\Support\Htmlable;
 use Webbingbrasil\FilamentMaps\Concerns;
@@ -29,6 +30,7 @@ abstract class MapWidget extends Widget implements HasForms, HasActions
     use Concerns\HasPolygones;
     use Concerns\HasRectangles;
     use Concerns\HasCircles;
+    use CanPoll;
 
     use Configurable {
         configure as protected configureWidget;

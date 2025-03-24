@@ -17,7 +17,10 @@
             </div>
         @endif
 
-        <div @class(['px-4 py-2' => $hasBorder])>
+        <div    @if ($pollingInterval = $this->getPollingInterval())
+                    wire:poll.5s.visible
+                @endif
+                @class(['px-4 py-2' => $hasBorder])>
             <x-filament-maps::map
                 :rounded="$rounded && $hasBorder"
                 :tile-layer-url="$this->getTileLayerUrl()"

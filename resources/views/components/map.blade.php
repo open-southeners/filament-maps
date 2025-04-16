@@ -216,26 +216,26 @@
                 },
                 toggleFullpage: function () {
                     if (this.fullpage == false) {
-                        document.querySelector('.fi-main-ctn').style.position = 'relative';
-                        document.querySelector('.fi-main-ctn').style.maxHeight = '100vh';
-                        document.querySelector('.fi-main-ctn').style.overflow = 'hidden';
+                        document.querySelector('.fi-main-ctn').style.height = '100vh';
+                        document.querySelector('.fi-main').style.position = 'relative';
+                        document.querySelector('.fi-main').style.overflow = 'hidden';
                         this.$refs.map.style.height = this.mapFullpageHeight;
                         this.$refs.map.style.minHeight = this.mapFullpageHeight;
                         this.$refs.map.style.position = 'absolute';
-                        this.$refs.map.style.top = document.querySelector('.fi-topbar').offsetHeight + 'px';
+                        this.$refs.map.style.top = '0';
                         this.$refs.map.style.left = '0';
                         this.$refs.map.style.zIndex = '5';
                         this.fullpage = true;
                         return;
                     }
 
-                    document.querySelector('.fi-main-ctn').style.position = '';
+                    document.querySelector('.fi-main-ctn').style.maxHeight = null;
+                    document.querySelector('.fi-main').style.position = '';
+                    document.querySelector('.fi-main').style.overflow = null;
                     this.$refs.map.style.height = this.mapDefaultHeight;
                     this.$refs.map.style.minHeight = '100%';
                     this.$refs.map.style.position = '';
                     this.$refs.map.style.top = 'inherit';
-                    document.querySelector('.fi-main-ctn').style.maxHeight = null;
-                    document.querySelector('.fi-main-ctn').style.overflow = null;
                     this.fullpage = false;
                 },
                 setTileLayer: function (mode) {

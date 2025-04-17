@@ -12,6 +12,7 @@
     'modals' => null,
     'rounded' => true,
     'fullpage' => false,
+    'pollingInterval' => null,
 ])
 
 @php
@@ -20,7 +21,15 @@
         fn (\Webbingbrasil\FilamentMaps\Actions\Action $action ): bool => ! $action->isHidden(),
     );
 @endphp
-<div class="filament-map">
+<div
+    @class([
+        'filament-map h-full',
+    ])
+
+    @if ($pollingInterval)
+        wire:poll.{{ $pollingInterval }}
+    @endif
+>
     <div
         {{ $attributes->class([
             'h-full w-full overflow-hidden',
@@ -28,6 +37,7 @@
         ]) }}
         {{ $extraAttributeBag }}>
         <div
+            class="h-full"
             wire:ignore
             x-data="{
                 mode: null,

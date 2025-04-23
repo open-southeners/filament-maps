@@ -125,7 +125,7 @@ abstract class MapWidget extends Widget implements HasForms, HasActions
 
     public function getRounded(): bool
     {
-        return $this->rounded;
+        return $this->rounded && $this->getHasBorder();
     }
 
     public function isFullPage(): bool

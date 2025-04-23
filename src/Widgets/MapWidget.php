@@ -59,13 +59,16 @@ abstract class MapWidget extends Widget implements HasForms, HasActions
 
     public function configure(): static
     {
-        return $this
+        $this
             ->configureMarkers()
             ->configurePolylines()
             ->configurePolygones()
             ->configureRectangles()
             ->configureCircles();
-//            ->configureWidget();
+
+        $this->setUp();
+
+        return $this;
     }
 
     public function height(string $height): self
